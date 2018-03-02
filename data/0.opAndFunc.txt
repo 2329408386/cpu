@@ -1,0 +1,75 @@
+/**
+*filename: 0.opAndFunc.txt
+*Author: Li Chengpeng
+*Description: This file records the basic information used to judge a directive----that's the operand and funct parts of a directive. all the numbers below are hex-format.
+*/
+
+
+1.R-Type:
+{
+	Operand:0
+	Funct:
+	{
+		add: 20;
+		sub: 22;
+		and: 24;
+		or:  25;
+		slt: 2a;
+		jr:  08;
+		sll: 00;
+		srl: 02;
+		sra: 03;
+	}
+	Signal: 6020;
+}
+
+2. I-Type:
+{
+	Operand:
+	{
+		lw:  23;
+		sw:  2b;
+		beq: 04;
+		bne: 05;
+		addi:08;
+		andi:0c;
+		ori: 0d;
+		xori:0e;
+		lui: 0f;
+	}
+	Signal:
+	{
+		lw:  c832;
+		sw:  8804;
+		beq: 9c00;
+		bne: 9b00;
+		addi:e820;
+		andi:e821;
+		ori: e822;
+		xori:e823;
+		lui: 6800;
+	}
+}
+
+3. J-Type:
+{
+	Operand:
+	{
+		j:   02;
+		jal: 03; 
+	}
+	Signal:
+	{
+		j:   0040;
+		jal: 0080;
+	}
+}
+
+4. Self-Type:
+{
+	Operand:
+	{
+		in: 20;
+		out: 21;
+	}
+}

@@ -1,0 +1,24 @@
+/**
+*filename: 3.interface.txt
+*author: Li Chengpeng
+*description: This file includes input and output interfaces.
+*/
+
+In:
+0. sw15 is used to control the mode: 0 means debug mode and 1 means clock mode.
+
+1. sw14~sw13 is used to control which part to display:
+00: datas heap;		01: registers heap;
+10: directives heap;	11: current pc;
+
+2. sw4~sw0 is used to select concrete position of the selected part. For example:
+if sw14~sw13 is 01, and sw4~sw0 is 00010, that means I'm choosing registers heap's 
+position 2 data to display.
+
+3. N17 is used to debug codes step by step.
+
+4. C12 is used to reset.
+
+Out:
+0. led15~led0 is used to display current directive's signals.
+1. light7~light0 is used to display data which used selected.

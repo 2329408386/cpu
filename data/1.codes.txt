@@ -1,0 +1,46 @@
+/**
+*filename: 1.code.txt
+*Author: Li Chengpeng
+*Description: the final code.
+*/
+
+nop
+addi $s0,$s0,3
+ori $s0,$s0,10
+andi $s0,$s0,9
+xori $s0,$s0,5
+
+lui $s2,3
+
+add $s1,$s0,$s0
+sub $s1,$s1,$s0
+srl $s2,$s2,16
+sll $s2,$s2,1
+sra $s2,$s2,2
+or $s0,$s0,$s2
+and $s2,$s1,$s2
+slt $s0,$s2,$s1
+
+bne $s0,$s2,L0
+nop
+
+L0: addi $s2,$2,1
+beq $s0,$s2,L1
+nop
+
+L1: addi $s2,$2,1
+j L2
+nop
+
+L2: addi $s2,$2,1
+jal L3
+nop
+
+L3: lw $0,datas[($1)+16]	// registers[0]=16
+sw datas[($2)+0],($0)		// datas[0]=16
+
+in datas[31]
+out datas[3]
+
+jr $s1
+nop
