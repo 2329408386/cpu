@@ -1,0 +1,43 @@
+/**
+*filename: 2.pc&asm&hex&registers&datas.txt
+*Author: Li Chengpeng
+*Description: This file is in fact a table, including every pc's
+*asm code and it's corresponding mips code and hex(bin) code. At the 
+* back of the table, is the value of registers and datas which used in
+* this procedure.
+*/
+
+ pc           asm              				hex(bin)		registers[16]	registers[17]	registers[18]	registers[0] registers[31]	datas[0]	datas[31]
+ 0			  nop						    00000000			0				0				0				0				0			0			31
+ 1		addi $s0,$s0,3						22100003			3				-				-				-				-			-			-		
+ 2		ori $s0,$s0,10						3610000a			b
+ 3		andi $s0,$s0,9						32100009			9
+ 4		xori $s0,$s0,5						3a100005			c
+ 5			lui $s2,3						3c120003											30000h
+ 6		add $s1,$s0,$s0						02108820							18h
+ 7		sub $s1,$s1,$s0						02308822							c				
+ 8		srl $s2,$s2,16						00129402											3
+ 9		sll $s2,$s2,1						00129040											6
+ 10		sra $s2,$s2,2						00129083											1
+ 11		or $s0,$s0,$s2						02128025			d
+ 12		and $s2,$s1,$s2						02329024											0
+ 13		slt $s0,$s2,$s1						0251802a			1
+ 14		bne $s0,$s2,L0						16120001
+ 15			  nop							00000000
+ 16		L0: addi $s2,$2,1					22520001											1
+ 17		beq $s0,$s2,L1						12120001
+ 18			  nop							00000000
+ 19		L1: addi $s2,$2,1					22520001											2
+ 20			  j L2							08100015
+ 21			  nop							00000000
+ 22		L2: addi $s2,$2,1					22520001											3	
+ 23			  jal L3						0c100018																			19h	
+ 24			  nop							00000000
+ 25		L3: lw $0,datas[($1)+16]			8c200010															10h
+ 26		sw datas[($2)+0],($0)				ac400000																						10h
+ 27		in datas[31]						8000001f																							current	display data
+ 28		out datas[3]						84000003			output datas[3] to displayor.
+ 29			  jr $s1						02200008			set pc with registers[17]=c.
+ 30			  nop							00000000
+ 
+ final															1				c 				3				10h				19h			10h			that's data			
